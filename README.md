@@ -30,6 +30,29 @@ Install dependencies, then use package scripts:
 
 Linux can compile TypeScript/Vite but cannot reliably produce a signed Mac DMG. Documented path: on macOS run the \`dist\` script.
 
+## Install DMG
+
+1. Open the `.dmg` file (double-click).
+2. Drag **Aureus** into **Applications**.
+3. First launch (unsigned local build): right-click the app and choose Open.
+   Or clear quarantine with:
+
+```bash
+xattr -cr /Applications/Aureus.app
+```
+
+4. Then open Aureus from Applications as usual.
+
+To build the DMG on an Apple Silicon Mac:
+
+```bash
+./scripts/build-dmg-mac.sh
+# or use the dist:arm64 package script
+```
+
+Output: `release/*.dmg`
+
+
 ## Features
 
 Landing, onboarding (BIP39 12/24 + passphrase + PIN), dashboard, send (coin control, fee tiers, RBF, batch, merge-avoidance alert), receive (fresh addresses, no-reuse, PayNym-style stub), UTXO lab, vaults (targets/unlock dates, 2-of-3 PSBT stub, inheritance checklist), PSBT lab + watch-only + QR airgap, settings (Esplora/Electrum/Tor/auto-lock/backup).

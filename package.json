@@ -12,6 +12,7 @@
     "build:main": "tsc -p tsconfig.electron.json",
     "start": "electron .",
     "dist": "npm run build && electron-builder --mac dmg",
+    "dist:arm64": "npm run build && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --mac dmg --arm64",
     "package:mac": "npm run dist"
   },
   "dependencies": {
@@ -67,12 +68,11 @@
         {
           "target": "dmg",
           "arch": [
-            "arm64",
-            "x64"
+            "arm64"
           ]
         }
       ],
-      "hardenedRuntime": true,
+      "hardenedRuntime": false,
       "gatekeeperAssess": false,
       "identity": null
     },
