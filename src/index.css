@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: #0a0a0b;
+  color: #f4f4f5;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #2a2a30; border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-aureus-border bg-aureus-card/80 shadow-card backdrop-blur;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-aureus-gold to-aureus-gold-dim px-4 py-2.5 text-sm font-semibold text-aureus-black transition hover:brightness-110 disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-aureus-border bg-aureus-dark/60 px-4 py-2.5 text-sm font-medium text-aureus-soft transition hover:border-aureus-gold/40 hover:text-aureus-gold;
+  }
+  .input {
+    @apply w-full rounded-xl border border-aureus-border bg-aureus-darker px-3 py-2.5 text-sm text-white outline-none ring-aureus-gold/40 placeholder:text-aureus-muted focus:ring-2;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-aureus-muted;
+  }
+}
